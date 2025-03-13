@@ -4,7 +4,14 @@ The original version of impact-ntlmrelayx only supported requests from machine a
 原始版本的impacket-ntlmrelayx 通过RBCD方式进行Relay的时候只能支持来自机器账户的请求，现在我做了一些小小的改变，使其能够支持来自用户账户的请求。
 ntlmrelayx的相关依赖已经补充完成，可以直接使用 Pyinstaller进行打包为exe，在windows主机上进行执行 
 
+## 如何使用这个工具？
+在某些特殊场景的AD渗透测试当中，我们可以使用考虑使用NtlmRelayToLdap的方式进行攻击。
 
+攻击手法：利用 基于资源的约束性委派获取目标主机的权限。
+
+原版本的 Impacket 只允许机器账户 发起 Relay修改自身的 属性为 攻击者所创建的机器账户。此工具补全了共计场景，加上了允许用户账户发起Relay进行修改自身所添加的机器账户的属性。
+
+因为在内网中大量未进行设置 IPV6 场景，给 NTLM relay over Http 提供了极大的攻击面，所以这款工具在某些场合会有奇迹发生。
 
 ## referer
 [修改工具的方式来源](https://www.cnblogs.com/unicodeSec/p/14260648.html)
